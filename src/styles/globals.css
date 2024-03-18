@@ -48,7 +48,7 @@ time, mark, audio, video {
   cursor: pointer;
 }
 
-@layer base {
+/* @layer base {
   h1 {
     @apply text-4xl font-bold md:text-5xl;
   }
@@ -73,4 +73,9 @@ time, mark, audio, video {
     @apply mx-auto w-full p-6 sm:p-8;
     max-width: 48rem;
   }
+} */
+
+.map-container {
+  width: 100vw;
+  height: 300px;
 }

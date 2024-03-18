@@ -22,8 +22,8 @@ services:
       # https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach
       - S3_ENDPOINT="host.docker.internal"
       - S3_PORT="9000"
-      - S3_ACCESS_KEY="2Tn0mYwAzsxLhN1Z7MzU"
-      - S3_SECRET_KEY="CCNcANsRp5xRMPH4cSVIkzyrpyf33EItPSvZ8QyD"
+      - S3_ACCESS_KEY="UTW3yqDoyxgByuIK4gUc"
+      - S3_SECRET_KEY="V4J9obiDTyohp72MUPapJj0eobZlZ0uXEKfuTx3e"
       - S3_BUCKET_NAME="geodata"
     depends_on:
       - db

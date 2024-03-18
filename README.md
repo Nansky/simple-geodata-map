@@ -1,24 +1,36 @@
-## Example of a File Storage With Next.js, PostgreSQL, and Minio S3
+## Simple Geodata Map with NextJS T3
 
-This is the code for the articles:
+This repo is created for submitting Bumi Vharta Technology Take home Test.
 
-- [Building a Local Development Environment: Running a Next.js Full-Stack App with PostgreSQL and Minio S3 Using Docker](https://blog.alexefimenko.com/posts/nextjs-postgres-s3-locally)
+in this assignment, The application is built with Next.js, PostgreSQL (using Prisma as ORM client and migration) to store files metadata, and Minio S3 as blob storage. It allows you to upload, show the geodata file in json format and show in map. The application is built with Docker, so you can run it locally without installing any dependencies.
 
-- [Building a file storage with Next.js, PostgreSQL, and Minio S3](https://blog.alexefimenko.com/posts/file-storage-nextjs-postgres-s3)
+For Map component, i am using `leaflet` library to show simple map. I did not manage to deploy this to Vercel or Heroku due to some reason. so i only shows only screenshot result from my local run.
 
-To run the application, use the following command:
+there are 2 components on sidebars, `Upload Page` and `View Map`. For upload page, You will see something like this:
+<a href="https://ibb.co/GFQhkrC"><img src="https://i.ibb.co/4JRQM04/Screenshot-2024-03-17-at-23-08-15.png" alt="Screenshot-2024-03-17-at-23-08-15" border="0"></a>
 
-```bash copy
-docker-compose -f compose/docker-compose.yml --env-file .env up
+Upload Page : 
+<a href="https://ibb.co/r6ZnpdZ"><img src="https://i.ibb.co/NjLwNTL/Screenshot-2024-03-16-at-18-07-51.png" alt="Screenshot-2024-03-16-at-18-07-51" border="0"></a>
+
+you can upload geodata file in json format. after that, you can select view map to see the geodata result based on uploaded file. 
+
+for Map page, you will see something like this :
+<a href="https://ibb.co/26Dv9rK"><img src="https://i.ibb.co/BPXypJs/Screenshot-2024-03-17-at-22-44-25.png" alt="Screenshot-2024-03-17-at-22-44-25" border="0"></a>
+
+<a href="https://ibb.co/frPKyZN"><img src="https://i.ibb.co/NWHkJfN/Screenshot-2024-03-17-at-22-44-46.png" alt="Screenshot-2024-03-17-at-22-44-46" border="0"></a>
+
+above image shows the upload files and when you choose file, it will show based on `features` field in geojson data, above example is only pin point the data based on coordinate like this
+```json
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-6.2431169,106.8432962]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+}
 ```
 
-After you run the application, you can access it at `http://localhost:3000`.
-The Minio S3 will be available at `http://localhost:9000`. You can use the access key `minio` and the secret key `miniosecret` to log in.
-
-You will see something like this:
-
-![File storage app](https://blog.alexefimenko.com/blog-assets/file-storage-nextjs-postgres-s3/app-screenshot.png)
-
-You can check the live demo of the application [here](http://89.111.169.67). It is shared with the public, so all files are visible to everyone. You can upload, download, and delete any files. Please do not upload any sensitive information.
-
-The application is built with Next.js, PostgreSQL, and Minio S3. It allows you to upload, download, and delete files. The application is built with Docker, so you can run it locally without installing any dependencies.
+_limitation : only 1 feature data can shown in the map_ 

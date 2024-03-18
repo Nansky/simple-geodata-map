@@ -38,10 +38,13 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   let buffer = Buffer.from(data.read())
  
-  console.log('aaaaa', fileObject?.originalName, fileObject?.fileName, buffer.toString())
-   
-  // pipe the data to the res object
-  data.pipe(res);
+  const result = buffer.toString()
+
+  if (!result.hasOwnProperty("type") && !result.hasOwnProperty("") && !result.hasOwnProperty("properties")){
+    return res.status(400)
+  }
+
+  res.status(200).json({ data: result})
 }
 
 export default handler;

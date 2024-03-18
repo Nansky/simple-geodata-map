@@ -33,7 +33,6 @@ export default function Home() {
         }
         { 
           currentContent === 'View Map' && (
-            // <p>Not yet Implemented</p>
             <MapPage/>
           )
         }

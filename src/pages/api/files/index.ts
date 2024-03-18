@@ -5,7 +5,7 @@ import { db } from "~/server/db";
 const LIMIT_FILES = 15;
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  // Get 10 latest files from the database
+  // Get 15 latest files from the database
   // For simplicity, we are not using pagination
   // If you want to implement pagination, you can use skip and take
   // https://www.prisma.io/docs/concepts/components/prisma-client/pagination#skip-and-take
